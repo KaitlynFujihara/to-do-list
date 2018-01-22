@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     var newTask = new Task(inputtedName, inputtedCategory, inputtedDueDate, calculateDaysUntil);
 
-    $("div#toDoList").append("<div class='well'><span class='name'>" + newTask.name + " " + "</span><button type='button' class= 'deleteItem fa fa-check' aria-hidden='true'></button></i></div>");
+    $("div#toDoList").append("<div class='well'><span class='name'>" + newTask.name + " " + "</span><button type='button' class= 'deleteItem fa fa-check' aria-hidden='true'></button></i><ul><li>Category: "+ newTask.category +"</li><li>"+ "Due date: " + newTask.dueDate + "</li><li>" + newTask.daysUntil + " day(s) until due" + "</li></ul></div>");
 
     $("input#newName").val("");
     $("select#newCategory").val("");
@@ -33,5 +33,10 @@ $(document).ready(function() {
     $(".deleteItem").click(function(){
       $(this).parent().hide();
     });
+
+    $(".name").unbind("click").click(function(){
+      $(this).nextAll("ul").first().slideToggle("slow");
+    });
+
   });
 });

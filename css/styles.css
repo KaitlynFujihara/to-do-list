@@ -5,3 +5,11 @@
 .fa-check {
   float:right;
 }
+
+li {
+font-size: 2rem;
+}
+
+ul {
+  display: none;
+}

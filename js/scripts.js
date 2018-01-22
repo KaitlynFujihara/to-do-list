@@ -23,9 +23,15 @@ $(document).ready(function() {
     var calculatedDaysUntil = calculateDaysUntil(inputtedDueDate);
 
     var newTask = new Task(inputtedName, inputtedCategory, inputtedDueDate, calculateDaysUntil);
-  
+
+    $("div#toDoList").append("<div class='well'><span class='name'>" + newTask.name + " " + "</span><button type='button' class= 'deleteItem fa fa-check' aria-hidden='true'></button></i></div>");
+
     $("input#newName").val("");
     $("select#newCategory").val("");
     $("input#newDueDate").val("");
+
+    $(".deleteItem").click(function(){
+      $(this).parent().hide();
+    });
   });
 });

@@ -5,9 +5,42 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>To Do List</title>
   </head>
   <body>
+    <div class="container">
+      <h1>To Do List</h1>
+
+      <h2>Add a task:</h2>
+      <form id="toDoForm">
+        <div class="form-group">
+          <label for="newName">Task Name</label>
+          <input type="text" class="form-control" id="newName">
+        </div>
+        <div class="form-group">
+          <label for="newCategory">Category</label>
+          <select class="form-control" id="newCategory">
+            <option>work</option>
+            <option>personal</option>
+            <option>school</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="newDueDate">Due Date</label>
+          <input type="date" class="form-control" id="newDueDate">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <div class="results">
+        <h2>To Dos:</h2>
+        <ul id="toDoList">
+
+        </ul>
+
+      </div>
+    </div>
 
   </body>
 </html>

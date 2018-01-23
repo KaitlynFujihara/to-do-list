@@ -30,8 +30,12 @@ $(document).ready(function() {
     $("select#newCategory").val("");
     $("input#newDueDate").val("");
 
-    $(".deleteItem").click(function(){
-      $(this).parent().hide();
+    $(".deleteItem").unbind("click").click(function(){
+       var done = confirm("Are you sure you want to delete this task?  This action cannot be undone.");
+       console.log(done)
+       if (done === true) {
+         $(this).parent().hide();
+       }
     });
 
     $(".name").unbind("click").click(function(){

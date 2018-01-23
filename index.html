@@ -16,11 +16,11 @@
       <form id="toDoForm">
         <div class="form-group">
           <label for="newName">Task Name</label>
-          <input type="text" class="form-control" id="newName">
+          <input type="text" class="form-control" id="newName" required="true">
         </div>
         <div class="form-group">
           <label for="newCategory">Category</label>
-          <select class="form-control" id="newCategory">
+          <select class="form-control" id="newCategory" required="true">
             <option>work</option>
             <option>personal</option>
             <option>school</option>
@@ -28,13 +28,14 @@
         </div>
         <div class="form-group">
           <label for="newDueDate">Due Date</label>
-          <input type="date" class="form-control" id="newDueDate">
+          <input type="date" class="form-control" id="newDueDate" required="true">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <div class="results">
         <h2>To Dos:</h2>
+        <p>Click task name to show and to hide details!</p>
         <div id="toDoList">
         </div>
 

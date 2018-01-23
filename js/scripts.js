@@ -24,7 +24,16 @@ $(document).ready(function() {
 
     var newTask = new Task(inputtedName, inputtedCategory, inputtedDueDate, calculateDaysUntil);
 
-    $("div#toDoList").append("<div class='well'><span class='name'>" + newTask.name + " " + "</span><button type='button' class= 'deleteItem fa fa-check' aria-hidden='true'></button></i><ul><li>Category: "+ newTask.category +"</li><li>"+ "Due date: " + newTask.dueDate + "</li><li>" + newTask.daysUntil + " day(s) until due" + "</li></ul></div>");
+    var daysUntil = "";
+    if (newTask.daysUntil === -1) {
+      daysUntil = "Due today"
+    } else if (newTask.daysUntil < -1) {
+      daysUntil = -(newTask.daysUntil) + " days overdue"
+    } else daysUntil = newTask.daysUntil + " days until due"
+
+    $("div#toDoList").append("<div class='well'><span class='name'>" + newTask.name + " " + "</span><button type='button' class= 'deleteItem fa fa-check' aria-hidden='true'></button></i><ul><li>Category: "+ newTask.category +"</li><li>"+ "Due date: " + newTask.dueDate + "</li><li>" + daysUntil + "</li></ul></div>");
+
+    $(".results").show();
 
     $("input#newName").val("");
     $("select#newCategory").val("");
@@ -34,7 +43,7 @@ $(document).ready(function() {
        var done = confirm("Are you sure you want to delete this task?  This action cannot be undone.");
        console.log(done)
        if (done === true) {
-         $(this).parent().hide();
+         $(this).parent().remove();
        }
     });
 
